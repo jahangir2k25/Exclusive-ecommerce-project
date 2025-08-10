@@ -5,7 +5,7 @@ import ViewAll from "../components/ViewAll";
 import Jbl from "../components/Jbl";
 import OurProducts from "../components/OurProducts";
 import NewArival from "../components/NewArival";
-import Services from "../components/services";
+import Services from "../components/Services";
 
 
 const Home = () => {
