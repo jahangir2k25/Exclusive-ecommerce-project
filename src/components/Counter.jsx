@@ -5,7 +5,7 @@ import Image from './Image';
 import Semiclone from '../assets/Semiclone.png'
 
 
-const Counter = ({ children, className }) => {
+const Counter = ({ className }) => {
     const conduct_date = '2025-08-31 16:54:00';
     const [count, setCount] = useState({});
 
@@ -23,27 +23,32 @@ const Counter = ({ children, className }) => {
         <>
             <div className='relative'>
                 <Flex className={`${className} justify-center items-center text-center font-poppins font-medium absolute lg:text-2xl text-[8px] gap-x-3 lg:gap-x-5 top-[-120px] left-40 lg:left-80 lg:top-[-65px]`}>
-                    <div>
+                    <div className={className}>
                         <h2>Day's</h2>
                         <h3>{count.days}</h3>
                     </div>
+
                     <Image src={Semiclone} />
-                    <div>
+
+                    <div className={className}>
                         <h2>Hours</h2>
                         <h3>{count.hours}</h3>
                     </div>
+
                     <Image src={Semiclone} />
-                    <div>
+
+                    <div className={className}>
                         <h2>Minutes</h2>
                         <h3>{count.minutes}</h3>
                     </div>
+
                     <Image src={Semiclone} />
-                    <div>
+
+                    <div className={className}>
                         <h2>Seconds</h2>
                         <h3>{count.seconds}</h3>
                     </div>
                 </Flex>
-                {children}
             </div>
         </>
     );

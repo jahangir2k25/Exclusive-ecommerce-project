@@ -16,33 +16,40 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => {
     setShow(!show)
-
   }
+
+
+  const navActive = ({ isActive }) =>
+    isActive
+      ? "lg:text-[#DB4444] font-semibold"
+      : "lg:text-[#000000] hover:text-[#DB4444]";
   return (
     <>
       <nav className="lg:pt-10 pt-4 pb-4 border-b-1 border-secondary relative z-10">
         <Container>
-          <Flex className='flex lg:flex justify-between items-center'>
+          <Flex className='flex justify-between items-center'>
             <div className="w-[25%] pl-2.5 lg:pl-0">
-              <img src={Logo} alt="" />
+              <NavLink to='/'>
+                <img src={Logo} alt="" />
+              </NavLink>
             </div>
 
             <div className={`${show ? 'block' : 'hidden'} lg:flex absolute justify-between items-center lg:text-black top-15     lg:static lg:bg-transparent text-white bg-black lg:w-[75%] w-full pl-4 lg:pl-0 py-4 lg:py-0`}>
               <div>
-                <ListUl className='flex-wrap lg:flex lg:gap-12 leading-6 lg:leading-0 hover:border-none cursor-pointer'>
-                  <NavLink to='/'>
+                <ListUl className='flex-wrap lg:flex lg:gap-12 leading-6 lg:leading-0 hover:border-none cursor-pointer z-auto'>
+                  <NavLink to='/' end className={navActive}>
                     <ListLi className='customize'> home</ListLi>
                   </NavLink>
-                  <NavLink to="/shop">
-                    <ListLi className="customize">shop</ListLi>
+                  <NavLink to="/shop" className={navActive}>
+                    <ListLi className='customize'>shop</ListLi>
                   </NavLink>
-                  <NavLink to="/contact">
+                  <NavLink to="/contact" className={navActive}>
                     <ListLi className="customize">contact</ListLi>
                   </NavLink>
-                  <NavLink to="/about">
+                  <NavLink to="/about" className={navActive}>
                     <ListLi className="customize">about</ListLi>
                   </NavLink>
-                  <NavLink to="/signup">
+                  <NavLink to="/signup" className={navActive}>
                     <ListLi className="customize">sign up</ListLi>
                   </NavLink>
                 </ListUl>

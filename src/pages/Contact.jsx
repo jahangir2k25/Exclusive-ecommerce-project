@@ -1,10 +1,9 @@
-import React from 'react'
-import BreadCrumb from '../components/BreadCrumb';
+import AtCart from './AtCart';
 
 const Contact = () => {
   return (
     <div>
-        <BreadCrumb/>
+        <AtCart/>
     </div>
   )
 }

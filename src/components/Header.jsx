@@ -4,6 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import ListUi from './ListUl'
 import ListLi from './ListLi'
 import { useState } from 'react';
+import { NavLink } from 'react-router'
 
 const Header = () => {
 
@@ -19,7 +20,7 @@ const Header = () => {
                 <Container>
                     <Flex className='justify-between items-center'>
                         <div className='text-white lg:text-sm text-[10px] text-center w-full lg:w-[90%] mx-auto'>
-                            <h5 className='font-poppins'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <a href="#" className='underline font-bold' >Shop Now</a> </h5>
+                            <h5 className='font-poppins'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <NavLink to='/shop' className='underline font-bold' >Shop Now</NavLink> </h5>
                         </div>
                         <div className='text-white flex items-center text-sm relative'>
                             <button className='flex cursor-pointer' onClick={handleClcik}>English <IoIosArrowDown className='text-2xl' /></button>

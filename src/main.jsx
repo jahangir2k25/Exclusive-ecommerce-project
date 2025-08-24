@@ -12,6 +12,10 @@ import About from "./pages/About";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import AtCart from "./pages/AtCart";
+import { Provider } from "react-redux";
+import { store } from "./Store";
 
 
 const router = createBrowserRouter([
@@ -24,13 +28,18 @@ const router = createBrowserRouter([
       { path: "shop", Component: Shop },
       { path: "contact", Component: Contact },
       { path: "signup", Component: SignUp },
+      { path: "login", Component: Login },
+      { path: "atcart", Component: AtCart },
     ],
   },
 ]);
 
 
 createRoot(document.getElementById('root')).render(
-    <StrictMode>
-        <RouterProvider router={router} />,
-    </StrictMode>,
+  <StrictMode>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </StrictMode>,
+
 );

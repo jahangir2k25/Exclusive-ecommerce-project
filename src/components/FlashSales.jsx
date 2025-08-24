@@ -18,7 +18,7 @@ function SampleNextArrow(props) {
     const { onClick } = props;
     return (
         <div
-            className='absolute -top-20 right-0 text-2xl bg-[#F5F5F5] p-2.75 rounded-full cursor-pointer'
+            className='absolute -top-20 right-0 text-2xl bg-secondary hover:bg-primary shadow-lg duration-300 p-2.75 rounded-full cursor-pointer'
             onClick={onClick}
         >
             <FaArrowLeftLong />
@@ -30,7 +30,7 @@ function SamplePrevArrow(props) {
     const { onClick } = props;
     return (
         <div
-            className='absolute -top-20 right-15 text-2xl bg-[#F5F5F5] p-2.75 rounded-full cursor-pointer'
+            className='absolute -top-20 right-15 text-2xl bg-secondary hover:bg-primary shadow-lg duration-300 p-2.75 rounded-full cursor-pointer'
             onClick={onClick}
         >
             <FaArrowRight />

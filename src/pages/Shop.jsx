@@ -1,23 +1,28 @@
 import { useEffect, useState } from 'react';
 import BreadCrumb from "../components/BreadCrumb";
 import ListUl from "../components/ListUl";
-import ListLi from "../components/ListLi"
+import ListLi from "../components/ListLi";
 import Container from "../components/Container";
 import axios from 'axios';
 import Pagination from '../components/Pagination';
 import Skeleton from '../components/Skeleton';
-
+import { useDispatch } from 'react-redux';
+import { productReducer } from '../Slices/ProductSlices';
 
 
 const Shop = () => {
 
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [optionShow, setOptionShow] = useState(6);
 
+  const dispatch = useDispatch()
+
   async function getAllProducts() {
     let data = await axios.get('https://dummyjson.com/products')
-    setProducts(data.data.products);
+    // setProducts(data.data.products);
+
+    dispatch(productReducer(data.data.products))
     setLoading(false);
   }
 
@@ -56,9 +61,9 @@ const Shop = () => {
             <div className="lg:flex flex-wrap justify-between grid grid-cols-2 gap-5 pt-8 lg:pt-0">
               {
                 loading ?
-                  Array.from({ length: 6 }).map((_, index)=> <Skeleton key={index} />)
-              :
-              (<Pagination itemsPerPage={optionShow} products={products} />)}
+                  Array.from({ length: 6 }).map((_, index) => <Skeleton key={index} />)
+                  :
+                  (<Pagination itemsPerPage={optionShow} />)}
 
               {/* /* // products.map((products) => {
                 //   return (

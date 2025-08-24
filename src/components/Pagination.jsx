@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Card from './Card';
+import { useSelector } from 'react-redux';
 
-const Pagination = ({ itemsPerPage, products }) => {
-    const items = products;
+const Pagination = ({ itemsPerPage }) => {
+
+    const getAllProducts = useSelector((state) => state.allProduct.value)
+    console.log(getAllProducts)
+
+    const items = getAllProducts;
 
     function Items({ currentItems }) {
         return (
