@@ -9,8 +9,6 @@ import BreadCrumb from '../components/BreadCrumb';
 import Size from '../components/Size';
 
 
-
-
 const AtCart = () => {
     return (
         <>
@@ -21,21 +19,21 @@ const AtCart = () => {
 
                 <div className='flex gap-7.5'>
                     <div className='space-y-4'>
-                        <div className='bg-secondary rounded-sm flex justify-between items-center'>
+                        <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
                             <img className='px-6 py-3' src={Game2} alt="" />
                         </div>
-                        <div className='bg-secondary rounded-sm flex justify-between items-center'>
+                        <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
                             <img className='px-6 py-3' src={Game2} alt="" />
                         </div>
-                        <div className='bg-secondary rounded-sm flex justify-between items-center'>
+                        <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
                             <img className='px-6 py-3' src={Game2} alt="" />
                         </div>
-                        <div className='bg-secondary rounded-sm flex justify-between items-center'>
+                        <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
                             <img className='px-6 py-3' src={Game2} alt="" />
                         </div>
                     </div>
 
-                    <div className='bg-secondary flex justify-between items-center'>
+                    <div className='bg-[#f5f5f5] flex justify-between items-center'>
                         <img className='px-6.75 pt-38.5 pb-32.75' src={Game1} alt="" />
                     </div>
 
@@ -139,63 +137,6 @@ const AtCart = () => {
                     </div>
                     <div className='text-primary font-semibold text-[16px] mt-[180px]'>Related Item</div>
                 </div>
-
-                {/* <div className='flex justify-between mt-10'>
-                    <Cart
-                        per="-40%"
-                        show={true}
-                        heart={heart}
-                        eye={eye}
-                        game={game}
-                        black="Add To Cart"
-                        head="HAVIT HV-G92 Gamepad"
-                        pera="$120"
-                        peraa="$160"
-                        star={star}
-                        pg="(88)"
-                    />
-
-                    <Cart
-                        per="-35%"
-                        show={true}
-                        heart={heart}
-                        eye={eye}
-                        game={keyboat}
-                        black="Add To Cart"
-                        head="AK-900 Wired Keyboard"
-                        pera="$960"
-                        peraa="$1160"
-                        star={star}
-                        pg="(75)"
-                    />
-
-                    <Cart
-                        per="-30%"
-                        show={true}
-                        heart={heart}
-                        eye={eye}
-                        game={desktop}
-                        black="Add To Cart"
-                        head="IPS LCD Gaming Monitor"
-                        pera="$370"
-                        peraa="$400"
-                        star={star}
-                        pg="(99)"
-                    />
-                    <Cart
-                        per="-25%"
-                        show={true}
-                        heart={heart}
-                        eye={eye}
-                        game={box}
-                        black="Add To Cart"
-                        head="S-Series Comfort Chair "
-                        pera="$375"
-                        peraa="$400"
-                        star={star}
-                        pg="(99)"
-                    />
-                </div> */}
             </Container>
         </>
     )

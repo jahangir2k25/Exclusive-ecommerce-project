@@ -7,20 +7,21 @@ import axios from 'axios';
 import Pagination from '../components/Pagination';
 import Skeleton from '../components/Skeleton';
 import { useDispatch } from 'react-redux';
-import { productReducer } from '../Slices/ProductSlices';
+import { categoryReducer, productReducer } from '../Slices/ProductSlices';
 
 
 const Shop = () => {
 
-  // const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [optionShow, setOptionShow] = useState(6);
+  const [category, setCategory] = useState([]);
 
   const dispatch = useDispatch()
 
   async function getAllProducts() {
     let data = await axios.get('https://dummyjson.com/products')
-    // setProducts(data.data.products);
+    setProducts(data.data.products);
 
     dispatch(productReducer(data.data.products))
     setLoading(false);
@@ -31,23 +32,34 @@ const Shop = () => {
 
   }, [])
 
+  useEffect(() => {
+    const uniqueCategory = [...new Set(products.map((item) => item.category))]
+    setCategory(uniqueCategory)
+
+  }, [products])
+
+  function handleFilterItems(item) {
+    const filterItems = products.filter((categoryItem) => categoryItem.category == item)
+    dispatch(categoryReducer(filterItems))
+  }
+
+  function handleAllProducts(){
+    dispatch(productReducer(products))
+  }
+
   return (
     <>
       <Container>
         <BreadCrumb />
         <div className='flex flex-col lg:flex-row justify-between items-start gap-5 lg:gap-0'>
-          <ListUl className="lg:w-[25%] lg:mt-6 mt-3 px-4 sm:px-0 sm:pr-4 lg:leading-9.5 font-poppins">
-            <ListLi className='text-xl font-bold pb-3.75'>Shop by Category</ListLi>
-            <ListLi>Woman’s Fashion </ListLi>
-            <ListLi>Men’s Fashion </ListLi>
-            <ListLi>Electronics</ListLi>
-            <ListLi>Home & Lifestyle</ListLi>
-            <ListLi>Medicine</ListLi>
-            <ListLi>Sports & Outdoor</ListLi>
-            <ListLi>Baby’s & Toys</ListLi>
-            <ListLi>Groceries &</ListLi>
-            <ListLi>Health & Beauty</ListLi>
+          <ListUl className="lg:w-[25%] lg:mt-6 mt-3 px-4 sm:px-0 sm:pr-4 lg:leading-9.5 font-poppins capitalize">
+            <h2 className='text-2xl font-bold'>Shop by Category</h2>
+            <ListLi onClick={handleAllProducts}>All products</ListLi>
+            {
+              category.map((item, id) => <ListLi key={id} onClick={() => handleFilterItems(item)}>{item}</ListLi>)
+            }
           </ListUl>
+
           <div className="lg:w-[75%] w-full">
             <div className="flex justify-end items-center gap-2 lg:mb-3.5 mb-[-15px]">
               <h2>Show:</h2>

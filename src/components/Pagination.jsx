@@ -15,8 +15,10 @@ const Pagination = ({ itemsPerPage }) => {
             <>
                 <div className='flex flex-wrap justify-between gap-6'>
                     {currentItems &&
-                        currentItems.map((items) => (
+                        currentItems.map((items, id) => (
                             <Card
+                                id={items.id}
+                                key={id}
                                 img={items.thumbnail}
                                 heading={items.title}
                                 price={items.price}

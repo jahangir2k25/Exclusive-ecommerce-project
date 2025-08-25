@@ -1,9 +1,9 @@
-import AtCart from './AtCart';
+import Account from '../components/Account';
 
 const Contact = () => {
   return (
     <div>
-        <AtCart/>
+        <Account/>
     </div>
   )
 }

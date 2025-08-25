@@ -3,13 +3,20 @@ import { IoMdEye } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import Button from './Button';
 import { Rate } from 'antd';
+import { useNavigate } from "react-router";
 
 
 
-const Card = ({ img, heading, price, pastprice, rating, reveiw, discount }) => {
+const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id }) => {
+
+    const navigate = useNavigate()
+    function handleClick() {
+        navigate(`/atcart/${id}`)
+    }
+
     return (
         <>
-            <div className="lg:w-67.5 w-45 group mx-auto">
+            <div onClick={handleClick} className="lg:w-67.5 w-45 group mx-auto">
                 <div className='bg-[#F5F5F5] flex justify-center items-center rounded-sm overflow-hidden relative'>
                     <div className='flex justify-center items-center lg:h-62.5 h-45'>
                         <img src={img} alt="#" />
@@ -36,7 +43,7 @@ const Card = ({ img, heading, price, pastprice, rating, reveiw, discount }) => {
                     <div className='flex text-[#FFAD33] text-sm items-center gap-2'>
                         {/* <FaStar /><FaStar /><FaStar /><FaStar /><FaStar /> */}
                         <Rate value={rating} />
-                        <h2 className='text-secondary'>({reveiw})</h2>
+                        <h2 className='text-secondary'>({reviews})</h2>
                     </div>
                 </div>
             </div>
