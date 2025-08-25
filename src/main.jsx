@@ -13,7 +13,7 @@ import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import AtCart from "./pages/AtCart";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 import { Provider } from "react-redux";
 import { store } from "./Store";
 
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       { path: "contact", Component: Contact },
       { path: "signup", Component: SignUp },
       { path: "login", Component: Login },
-      { path: "atcart", Component: AtCart },
+      { path: "/productdetailspage/:id", Component: ProductDetailsPage },
     ],
   },
 ]);

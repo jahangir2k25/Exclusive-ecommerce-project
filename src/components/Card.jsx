@@ -11,7 +11,7 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id })
 
     const navigate = useNavigate()
     function handleClick() {
-        navigate(`/atcart/${id}`)
+        navigate(`/productdetailspage/${id}`)
     }
 
     return (

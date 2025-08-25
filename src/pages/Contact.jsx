@@ -1,4 +1,4 @@
-import Account from '../components/Account';
+import Account from './Account';
 
 const Contact = () => {
   return (
