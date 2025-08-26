@@ -1,9 +1,10 @@
 import Cart from './Cart';
+import CheckoutPage from './CheckOut';
 
 const Contact = () => {
   return (
     <div>
-        <Cart/>
+        <CheckoutPage/>
     </div>
   )
 }

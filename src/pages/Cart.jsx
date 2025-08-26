@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import Monitor from '../assets/monitor.png';
 import Game from '../assets/gamepad.png';
 import { useSelector } from 'react-redux';
+import QuantityInput from '../components/Quantity';
 
 const Cart = () => {
 
@@ -28,7 +29,9 @@ const Cart = () => {
               <h2>LCD Monitor</h2>
             </div>
             <h2>$650</h2>
-            <div>01</div>
+            <div>
+              <QuantityInput />
+            </div>
             <h2>$650</h2>
           </div>
           <div className='flex justify-between py-7.25 px-10 shadow rounded-sm'>
@@ -37,7 +40,9 @@ const Cart = () => {
               <h2>H1 Gamepad</h2>
             </div>
             <h2>$550</h2>
-            <div>02</div>
+            <div>
+              <QuantityInput />
+            </div>
             <h2>$1100</h2>
           </div>
         </div>
