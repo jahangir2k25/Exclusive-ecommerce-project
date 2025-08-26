@@ -4,21 +4,30 @@ import { CiHeart } from "react-icons/ci";
 import Button from './Button';
 import { Rate } from 'antd';
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { cartReducer } from "../Slices/ProductSlices";
 
 
 
-const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id }) => {
+const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, productDetails }) => {
+    
+    const dispatch = useDispatch()
 
     const navigate = useNavigate()
     function handleClick() {
         navigate(`/productdetailspage/${id}`)
     }
 
+    function handleAddToCart(){
+        dispatch(cartReducer(productDetails))
+        localStorage.setItem('cart', JSON.stringify(productDetails))
+    }
+
     return (
         <>
-            <div onClick={handleClick} className="lg:w-67.5 w-45 group mx-auto">
+            <div  className="lg:w-67.5 w-45 group mx-auto">
                 <div className='bg-[#F5F5F5] flex justify-center items-center rounded-sm overflow-hidden relative'>
-                    <div className='flex justify-center items-center lg:h-62.5 h-45'>
+                    <div onClick={handleClick} className='flex justify-center items-center lg:h-62.5 h-45'>
                         <img src={img} alt="#" />
                     </div>
                     <h2 className='bg-primary text-center text-xs text-white absolute lg:left-3 lg:top-3 left-1.5 top-1 lg:px-3 lg:py-1 px-1 rounded-sm'>{discount}</h2>
@@ -31,7 +40,7 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id })
                         </div>
                     </div>
                     <div className='absolute -bottom-10.5 group-hover:bottom-0 duration-300 ease-linear left-0 w-full'>
-                        <Button className='lg:py-2.25 w-full'>Ad To Cart</Button>
+                        <Button onClick={handleAddToCart} className='lg:py-2.25 w-full'>Add To Cart</Button>
                     </div>
                 </div>
                 <div className="#">

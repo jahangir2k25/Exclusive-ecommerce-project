@@ -1,9 +1,9 @@
-import Account from './Account';
+import Cart from './Cart';
 
 const Contact = () => {
   return (
     <div>
-        <Account/>
+        <Cart/>
     </div>
   )
 }

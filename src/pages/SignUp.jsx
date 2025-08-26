@@ -8,7 +8,7 @@ const SignUp = () => {
   return (
     <>
       <Container>
-        <div className='mt-5'>
+        <div className='mt-20'>
           <BreadCrumb />
         </div>
         <div className='mt-5 lg:mt-15 flex'>
@@ -48,7 +48,7 @@ const SignUp = () => {
             </div>
 
             <div className='mt-8'>
-              <NavLink className='text-black flex items-center gap-2 border-1 border-secondary hover:text-white hover:bg-black px-22 py-4 rounded-sm'>
+              <NavLink className='text-black flex items-center gap-2 border-1 border-secondary hover:text-white hover:bg-black duration-300 px-22 py-4 rounded-sm'>
                 <span className='text-2xl'><FcGoogle /></span>
                 Sign up with Google
               </NavLink>

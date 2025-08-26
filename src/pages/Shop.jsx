@@ -50,7 +50,9 @@ const Shop = () => {
   return (
     <>
       <Container>
+        <div className='mt-20'>
         <BreadCrumb />
+        </div>
         <div className='flex flex-col lg:flex-row justify-between items-start gap-5 lg:gap-0'>
           <div className="lg:w-[25%]">
             <ListUl className="lg:mt-6 mt-3 px-4 sm:px-0 sm:pr-4 lg:leading-9.5 font-poppins capitalize">
