@@ -1,15 +1,40 @@
+import { useEffect, useState } from 'react';
 import Container from '../components/Container';
-import Game1 from '../assets/Cgame1.png';
-import Game2 from '../assets/Cgame2.png';
+// import Game1 from '../assets/Cgame1.png';
+// import Game2 from '../assets/Cgame2.png';
 import { IoStar } from "react-icons/io5";
 import { FiHeart } from "react-icons/fi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { HiOutlineArrowPathRoundedSquare } from "react-icons/hi2";
 import BreadCrumb from '../components/BreadCrumb';
 import Size from '../components/Size';
+import axios from 'axios';
+import { useParams } from "react-router";
+import { Rate } from 'antd';
 
 
-const AtCart = () => {
+
+const ProductDetails = () => {
+    const [products, setProducts] = useState({});
+    const [productImages, setProductImages] = useState([]);
+    const [productReviews, setProductReviews] = useState([]);
+
+    const { id } = useParams();
+    async function getAllProducts() {
+        let data = await axios.get(`https://dummyjson.com/products/${id}`)
+        setProducts(data.data);
+        setProductImages(data.data.images);
+        setProductReviews(data.data.reviews);
+
+        // dispatch(productReducer(data.data.products))
+        // setLoading(false);
+    }
+
+    useEffect(() => {
+        getAllProducts();
+
+    }, []);
+
     return (
         <>
             <Container>
@@ -19,7 +44,17 @@ const AtCart = () => {
 
                 <div className='flex gap-7.5'>
                     <div className='space-y-4'>
-                        <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
+                        {
+                            productImages.map((images, id) => {
+                                return (
+                                    <div key={id} className='bg-[#f5f5f5] rounded-sm '>
+                                        <img className='w-42.5 h-34.5' src={images} alt="" />
+                                    </div>
+                                );
+                            })
+                        }
+
+                        {/* <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
                             <img className='px-6 py-3' src={Game2} alt="" />
                         </div>
                         <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
@@ -30,24 +65,26 @@ const AtCart = () => {
                         </div>
                         <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
                             <img className='px-6 py-3' src={Game2} alt="" />
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className='bg-[#f5f5f5] flex justify-between items-center'>
-                        <img className='px-6.75 pt-38.5 pb-32.75' src={Game1} alt="" />
+                        <img className='w-125 h-150' src={products.thumbnail} alt="" />
                     </div>
 
                     <div className='w-99.75'>
                         <div>
-                            <h2 className='font-inter font-semibold text-2xl'>Havic HV G-92 Gamepad</h2>
+                            <h2 className='font-inter font-semibold text-2xl'>{products.title}</h2>
                         </div>
 
                         <div className='mt-4 flex gap-6'>
                             <div className='flex gap-2 text-[#FFAD33]'>
-                                <IoStar /><IoStar /><IoStar /><IoStar /><IoStar />
+                                <Rate value={products.rating} />
                             </div>
                             <div>
-                                <h4 className='text-[#807b7b] font-Poppins text-sm'>(150 Reviews)</h4>
+                                <h4 className='text-[#807b7b] font-Poppins text-sm'>
+                                    ( {productReviews.length} Reviews )
+                                </h4>
                             </div>
                             <div className='border-[#807b7b] border-r-2'></div>
                             <div>
@@ -56,8 +93,8 @@ const AtCart = () => {
                         </div>
 
                         <div className='border-b-2 border-secondary mt-4'>
-                            <h4 className='text-2xl font-inter'>$192.00</h4>
-                            <p className='text-sm font-poppins py-6'>PlayStation 5 Controller Skin High quality vinyl with air  channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</p>
+                            <h4 className='text-2xl font-inter'>${products.price}</h4>
+                            <p className='text-sm font-poppins py-6'>{products.description}</p>
                         </div>
 
                         <div className="flex items-center gap-4 py-6">
@@ -142,4 +179,4 @@ const AtCart = () => {
     )
 }
 
-export default AtCart;
+export default ProductDetails;

@@ -1,6 +1,5 @@
 import { useLocation } from 'react-router';
 
-
 const BreadCrumb = () => {
     let {pathname} = useLocation()
     let PathnameLocation = pathname.split('/')

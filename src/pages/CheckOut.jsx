@@ -5,7 +5,7 @@ import Container from "../components/Container";
 import Payment from '../assets/paymentmethod.png'
 import BreadCrumb from "../components/BreadCrumb";
 
-const CheckoutPage = () => {
+const CheckOut = () => {
   const [paymentMethod, setPaymentMethod] = useState("cod");
 
 
@@ -13,7 +13,7 @@ const CheckoutPage = () => {
     <>
       <Container>
         <div className="my-20">
-          <BreadCrumb/>
+          <BreadCrumb />
         </div>
         <h2 className="text-4xl font-inter font-medium mt-20 mb-12">Billing Details</h2>
         {/* Billing Details */}
@@ -23,7 +23,7 @@ const CheckoutPage = () => {
               <label className="mb-1 font-medium">First Name*</label>
               <input
                 type="text"
-                className="w-full bg-secondary rounded-sm p-2 focus:outline-none"
+                className="w-full bg-[#f5f5f5] rounded-sm p-2 focus:outline-none"
                 required
               />
             </div>
@@ -31,37 +31,37 @@ const CheckoutPage = () => {
             <div>
               <label className="mb-1 font-medium">Company Name</label>
               <input type="text"
-                className="w-full bg-secondary rounded-sm p-2 focus:outline-none" />
+                className="w-full bg-[#f5f5f5] rounded-sm p-2 focus:outline-none" />
             </div>
 
             <div>
               <label className="mb-1 font-medium">Street Address*</label>
               <input type="text"
-                className="w-full bg-secondary rounded-sm  p-2 focus:outline-none" required />
+                className="w-full bg-[#f5f5f5] rounded-sm  p-2 focus:outline-none" required />
             </div>
 
             <div>
               <label className="mb-1 font-medium">Apartment, floor, etc. (optional)</label>
               <input type="text"
-                className="w-full bg-secondary rounded-sm p-2  focus:outline-none" />
+                className="w-full bg-[#f5f5f5] rounded-sm p-2  focus:outline-none" />
             </div>
 
             <div>
               <label className="mb-1 font-medium">Town/City*</label>
               <input type="text"
-                className="w-full bg-secondary rounded-sm p-2  focus:outline-none" required />
+                className="w-full bg-[#f5f5f5] rounded-sm p-2  focus:outline-none" required />
             </div>
 
             <div>
               <label className="mb-1 font-medium">Phone Number*</label>
               <input type="text"
-                className="w-full bg-secondary rounded-sm p-2 focus:outline-none" required />
+                className="w-full bg-[#f5f5f5] rounded-sm p-2 focus:outline-none" required />
             </div>
 
             <div>
               <label className="mb-1 text-secondary font-medium">Email Address*</label>
               <input type="email"
-                className="w-full bg-secondary rounded-sm p-2 focus:outline-none" required />
+                className="w-full bg-[#f5f5f5] rounded-sm p-2 focus:outline-none" required />
             </div>
 
             <div className="flex items-center mt-3">
@@ -78,39 +78,41 @@ const CheckoutPage = () => {
 
           {/* Order Summary */}
           <div className="flex-1">
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex justify-center items-center gap-3">
-                <img className='w-13.5 h-12' src={Monitor} alt="Monitor" />
-                <p>LCD Monitor</p>
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex justify-center items-center gap-3">
+                  <img className='w-13.5 h-12' src={Monitor} alt="Monitor" />
+                  <p>LCD Monitor</p>
+                </div>
+                <p>$650</p>
               </div>
-              <p>$650</p>
-            </div>
 
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex justify-center items-center gap-3">
-                <img className='w-13.5 h-12' src={Gamepad} alt="Gamepad" />
-                <p>HI Gamepad</p>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex justify-center items-center gap-3">
+                  <img className='w-13.5 h-12' src={Gamepad} alt="Gamepad" />
+                  <p>HI Gamepad</p>
+                </div>
+                <p>$1100</p>
               </div>
-              <p>$1100</p>
-            </div>
 
-            <div className="flex justify-between border-b-2 border-secondary py-4">
-              <span>Subtotal:</span>
-              <span>$1750</span>
-            </div>
-            <div className="flex justify-between border-b-2 border-secondary py-4">
-              <span>Shipping:</span>
-              <span>Free</span>
-            </div>
-            <div className="flex justify-between font-bold text-lg py-4">
-              <span>Total:</span>
-              <span>$1750</span>
+              <div className="flex justify-between border-b-2 border-secondary py-4">
+                <span>Subtotal:</span>
+                <span>$1750</span>
+              </div>
+              <div className="flex justify-between border-b-2 border-secondary py-4">
+                <span>Shipping:</span>
+                <span>Free</span>
+              </div>
+              <div className="flex justify-between font-bold text-lg py-4">
+                <span>Total:</span>
+                <span>$1750</span>
+              </div>
             </div>
 
             {/* Payment Method */}
             <div className="space-y-2 mb-5">
               <label className="flex justify-between items-center gap-2">
-                <div className="flex items-center">
+                <div className="flex gap-2 items-center">
                   <input
                     type="radio"
                     name="payment"
@@ -158,4 +160,4 @@ const CheckoutPage = () => {
   );
 };
 
-export default CheckoutPage;
+export default CheckOut;

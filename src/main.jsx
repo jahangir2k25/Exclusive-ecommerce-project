@@ -13,11 +13,13 @@ import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
+import ProductDetails from "./pages/ProductDetails";
 import { Provider } from "react-redux";
 import { store } from "./Store";
-// import AtCart from "./pages/ProductDetailsPage";
-
+import AtToCart from "./pages/AtToCart";
+import Account from "./pages/Account";
+import CheckOut from "./pages/CheckOut";
+import Error from "./pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +32,11 @@ const router = createBrowserRouter([
       { path: "contact", Component: Contact },
       { path: "signup", Component: SignUp },
       { path: "login", Component: Login },
-      { path: "/productdetailspage/:id", Component: ProductDetailsPage },
-      // {path: "/cart/:id", Component: Cart }
+      { path: "productdetails/:id", Component: ProductDetails },
+      { path: "attocart", Component: AtToCart },
+      { path: "account", Component: Account },
+      { path: "checkout", Component: CheckOut },
+      { path: "error", Component: Error },
     ],
   },
 ]);

@@ -40,13 +40,13 @@ const Account = () => {
                                 <h2 className='font-poppins'>First Name</h2>
                                 <input type="text"
                                     placeholder='Md'
-                                    className='w-82.5 h-12.5 pl-4 bg-secondary mt-2 rounded-sm focus:outline-none' />
+                                    className='w-82.5 h-12.5 pl-4 bg-[#f5f5f5] mt-2 rounded-sm focus:outline-none' />
                             </div>
                             <div>
                                 <h2 className='font-poppins'>Last Name</h2>
                                 <input type="text"
                                     placeholder='Rimel'
-                                    className='w-82.5 h-12.5 pl-4 bg-secondary mt-2 rounded-sm focus:outline-none' />
+                                    className='w-82.5 h-12.5 pl-4 bg-[#f5f5f5] mt-2 rounded-sm focus:outline-none' />
                             </div>
                         </div>
 
@@ -55,13 +55,13 @@ const Account = () => {
                                 <h2 className='font-poppins'>Email</h2>
                                 <input type="text"
                                     placeholder='rimel1111@gmail.com'
-                                    className='w-82.5 h-12.5 pl-4 bg-secondary mt-2 rounded-sm focus:outline-none' />
+                                    className='w-82.5 h-12.5 pl-4 bg-[#f5f5f5] mt-2 rounded-sm focus:outline-none' />
                             </div>
                             <div>
                                 <h2 className='font-poppins'>Address</h2>
                                 <input type="text"
                                     placeholder='Kingston, 5236, United State'
-                                    className='w-82.5 h-12.5 pl-4 bg-secondary mt-2 rounded-sm focus:outline-none' />
+                                    className='w-82.5 h-12.5 pl-4 bg-[#f5f5f5] mt-2 rounded-sm focus:outline-none' />
                             </div>
                         </div>
 
@@ -70,19 +70,19 @@ const Account = () => {
                                 <h2 className='font-poppins'>Password Changes</h2>
                                 <input type="text"
                                     placeholder='Current Passwod'
-                                    className='w-177.5 h-12.5 pl-4 bg-secondary mt-4 rounded-sm focus:outline-none' />
+                                    className='w-177.5 h-12.5 pl-4 bg-[#f5f5f5] mt-4 rounded-sm focus:outline-none' />
                             </div>
 
                             <div>
                                 <input type="text"
                                     placeholder='New Passwod'
-                                    className='w-177.5 h-12.5 pl-4 bg-secondary mt-4 rounded-sm focus:outline-none' />
+                                    className='w-177.5 h-12.5 pl-4 bg-[#f5f5f5] mt-4 rounded-sm focus:outline-none' />
                             </div>
 
                             <div>
                                 <input type="text"
                                     placeholder='Confirm New Passwod'
-                                    className='w-177.5 h-12.5 pl-4 bg-secondary mt-4 rounded-sm focus:outline-none' />
+                                    className='w-177.5 h-12.5 pl-4 bg-[#f5f5f5] mt-4 rounded-sm focus:outline-none' />
                             </div>
                         </div>
 

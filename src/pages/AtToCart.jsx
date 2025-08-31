@@ -6,7 +6,7 @@ import Game from '../assets/gamepad.png';
 import { useSelector } from 'react-redux';
 import QuantityInput from '../components/Quantity';
 
-const Cart = () => {
+const AtToCart = () => {
 
   const productCart = useSelector((state) => state.allProduct.cart)
 
@@ -87,4 +87,4 @@ const Cart = () => {
   )
 }
 
-export default Cart;
+export default AtToCart;
