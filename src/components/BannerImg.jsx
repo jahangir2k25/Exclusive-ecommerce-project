@@ -28,7 +28,7 @@ const BannerImg = () => {
       <div
         style={{
           borderRadius: "10px",
-          padding: "10px"
+          padding: "13px"
         }}
       >
         <ul style={{ margin: "0px" }}> {dots} </ul>
@@ -37,8 +37,8 @@ const BannerImg = () => {
     customPaging: i => (
       <div
         style={{
-          width: "20px",
-          height: "20px",
+          width: "15px",
+          height: "15px",
 
         }}
       >

@@ -13,7 +13,7 @@ const Jbl = () => {
                     <div className='lg:w-110.75 absolute lg:left-14 lg:top-17.25 left-8 top-4'>
                         <h3 className='font-poppins font-semibold text-sm text-[#00FF66] '>Categories</h3>
                         <h4 className='font-inter font-semibold text-white lg:text-[48px] lg:py-8 py-2'>Enhance Your Music Experience</h4>
-                        <Counter className='text-black bg-white h-20 w-20 rounded-full'/>
+                        <Counter className='bg-white h-20 w-20 rounded-full'/>
                         <button className='lg:px-12 lg:py-4 px-3 py-2 bg-[#00FF66] text-white lg:text-2xl text-xs hover:bg-[#00ff66dd]'>Buy Now!</button>
                     </div>
                 </div>

@@ -6,11 +6,25 @@ import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { cartReducer } from "../Slices/ProductSlices";
+import { ToastContainer, toast, Bounce } from 'react-toastify';
+
 
 
 
 const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, productDetails }) => {
-    
+
+    const notify = () => toast.success('Successfully added to Cart', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
+
     const dispatch = useDispatch()
 
     const navigate = useNavigate()
@@ -18,14 +32,15 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
         navigate(`/productdetails/${id}`)
     }
 
-    function handleAddToCart(){
+    function handleAddToCart() {
         dispatch(cartReducer(productDetails))
-        localStorage.setItem('cart', JSON.stringify(productDetails))
+        notify()
     }
 
     return (
         <>
-            <div  className="lg:w-67.5 w-45 group mx-auto">
+            <div className="lg:w-67.5 w-45 group mx-auto">
+                <ToastContainer />
                 <div className='bg-[#F5F5F5] flex justify-center items-center rounded-sm overflow-hidden relative'>
                     <div onClick={handleClick} className='flex justify-center items-center lg:h-62.5 h-45'>
                         <img src={img} alt="#" />

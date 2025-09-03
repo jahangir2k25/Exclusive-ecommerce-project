@@ -10,34 +10,32 @@ import Button from './Button';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
-
-function SampleNextArrow(props) {
-    const { onClick } = props;
-    return (
-        <div
-            className='absolute -top-20 right-0 text-2xl bg-secondary hover:bg-primary shadow-lg duration-300 p-2.75 rounded-full cursor-pointer'
-            onClick={onClick}
-        >
-            <FaArrowLeftLong />
-        </div>
-    );
-}
 
 function SamplePrevArrow(props) {
     const { onClick } = props;
     return (
         <div
-            className='absolute -top-20 right-15 text-2xl bg-secondary hover:bg-primary shadow-lg duration-300 p-2.75 rounded-full cursor-pointer'
+            className='absolute -top-20 right-2 text-2xl bg-[#F5F5F5] hover:bg-primary shadow-lg duration-300 p-2.75 rounded-full cursor-pointer'
             onClick={onClick}
         >
             <FaArrowRight />
         </div>
     );
 }
-
+function SampleNextArrow(props) {
+    const { onClick } = props;
+    return (
+        <div
+            className='absolute -top-20 right-16 text-2xl bg-[#F5F5F5] hover:bg-primary shadow-lg duration-300 p-2.75 rounded-full cursor-pointer'
+            onClick={onClick}
+        >
+            <FaArrowLeftLong />
+        </div>
+    );
+}
 
 const FlashSales = () => {
     const settings = {
@@ -47,8 +45,8 @@ const FlashSales = () => {
         slidesToShow: 4,
         slidesToScroll: 4,
         initialSlide: 0,
-        nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
+        nextArrow: <SampleNextArrow />,
         responsive: [
             {
                 breakpoint: 990,

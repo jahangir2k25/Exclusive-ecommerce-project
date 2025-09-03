@@ -41,7 +41,7 @@ const About = () => {
               </div>}
             count='10.5k'
             heading='Sallers active our site'
-            className='w-67.5 h-57.5'
+            className='w-67.5 h-57.5 hover:border-primary'
           />
           <ThirdHead
             items={
@@ -50,7 +50,7 @@ const About = () => {
               </div>}
             count='33k'
             heading='Mopnthly Produduct Sale'
-            className='w-67.5 h-57.5'
+            className='w-67.5 h-57.5 hover:border-primary'
           />
           <ThirdHead
             items={
@@ -59,16 +59,16 @@ const About = () => {
               </div>}
             count='45.5k'
             heading='Customer active in our site'
-            className='w-67.5 h-57.5'
+            className='w-67.5 h-57.5 hover:border-primary'
           />
           <ThirdHead
             items={
-              <div className='px-3 py-3 bg-black rounded-full flex justify-center items-center border-10 border-gray-300'>
+              <div className='px-3 py-3 bg-black rounded-full flex justify-center items-center border-10 border-gray-300 '>
                 <FaSackDollar className='text-white text-3xl' />
               </div>}
             count='25k'
             heading='Anual gross sale in our site'
-            className='w-67.5 h-57.5'
+            className='w-67.5 h-57.5 hover:border-primary'
           />
 
 

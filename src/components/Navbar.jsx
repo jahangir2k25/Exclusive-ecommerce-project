@@ -9,7 +9,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { AiOutlineBars } from "react-icons/ai";
 import { NavLink } from "react-router";
-
+import { useSelector } from 'react-redux';
 
 
 const Navbar = () => {
@@ -18,11 +18,16 @@ const Navbar = () => {
     setShow(!show)
   }
 
+  const CartIcon = useSelector((state) => state.allProduct.cart)
+  console.log(CartIcon);
+
+
 
   const navActive = ({ isActive }) =>
     isActive
       ? "lg:text-[#DB4444] font-semibold"
       : "lg:text-[#000000] hover:text-[#DB4444]";
+
   return (
     <>
       <nav className="lg:pt-10 pt-4 pb-4 border-b-1 border-secondary relative z-10">
@@ -65,8 +70,16 @@ const Navbar = () => {
                   <CiSearch className="absolute lg:top-1.5 lg:right-2.5 top-5 right-36 text-black text-2xl cursor-pointer" />
                 </div>
                 <div className="flex lg:static lg:top-0 absolute top-39 right-2.5 items-center text-2xl lg:gap-4 gap-1.5 cursor-pointer">
-                  <CiHeart />
-                  <IoCartOutline />
+                  <div className="relative ">
+                    <CiHeart />
+                    <h2 className="absolute w-5 h-5 -top-3 left-3 rounded-full bg-primary text-white flex justify-center items-center text-xs">{CartIcon.weight}2</h2>
+                  </div>
+                  <NavLink to='/attocart'>
+                    <div className="relative ">
+                      <IoCartOutline />
+                      <h2 className="absolute w-5 h-5 -top-3 left-3 rounded-full bg-primary text-white flex justify-center items-center text-xs">{CartIcon.length}</h2>
+                    </div>
+                  </NavLink>
                 </div>
               </div>
             </div>

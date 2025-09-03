@@ -50,38 +50,37 @@ const Shop = () => {
   return (
     <>
       <Container>
-        <div className='mt-20'>
-        <BreadCrumb />
+        <div className='mt-5 lg:mt-20'>
+          <BreadCrumb />
         </div>
         <div className='flex flex-col lg:flex-row justify-between items-start gap-5 lg:gap-0'>
           <div className="lg:w-[25%]">
             <ListUl className="lg:mt-6 mt-3 px-4 sm:px-0 sm:pr-4 lg:leading-9.5 font-poppins capitalize">
-              <h2 className='text-2xl font-bold'>Shop by Category</h2>
+              <h2 className='text-lg lg:text-2xl font-bold'>Shop by Category</h2>
               <ListLi onClick={handleAllProducts}>All products</ListLi>
               {
                 category.map((item, id) => <ListLi key={id} onClick={() => handleFilterItems(item)}>{item}</ListLi>)
               }
             </ListUl>
 
-            <div>
-              <h2 className='text-2xl font-bold pt-10'>Shop by Color</h2>
+            <div className='lg:mt-5 mt-0 px-4 lg:px-0'>
+              <h2 className='text-lg lg:text-2xl font-bold pt-10'>Shop by Color</h2>
               <div className='flex gap-2.5 items-center py-3.75'>
                 <div className='bg-black rounded-full w-2.5 h-2.5'></div>
-                <h2 className='text-secondary font-poppins'>color 1</h2>
+                <h2 className='text-secondary font-poppins'>Black</h2>
               </div>
               <div className='flex gap-2.5 items-center pb-3.75'>
                 <div className='bg-primary rounded-full w-2.5 h-2.5'></div>
-                <h2 className='text-secondary font-poppins'>color 2</h2>
+                <h2 className='text-secondary font-poppins'>Red</h2>
               </div>
               <div className='flex gap-2.5 items-center'>
                 <div className='bg-[#00FF38] rounded-full w-2.5 h-2.5'></div>
-                <h2 className='text-secondary font-poppins'>color 3</h2>
+                <h2 className='text-secondary font-poppins'>Green</h2>
               </div>
             </div>
-
           </div>
 
-          <div className="lg:w-[75%] w-full">
+          <div className="lg:w-[75%]">
             <div className="flex justify-end items-center gap-2 lg:mb-3.5 mb-[-15px]">
               <h2>Show:</h2>
               <select onChange={(e) => setOptionShow(e.target.value)} id='#' className="py-1 px-2 border border-gray-300 rounded-md">

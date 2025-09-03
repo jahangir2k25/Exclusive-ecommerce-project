@@ -7,7 +7,9 @@ const Login = () => {
     return (
         <>
             <Container>
-                <BreadCrumb />
+                <div className='mt-5 lg:mt-20'>
+                    <BreadCrumb />
+                </div>
                 <div className='mt-5 lg:mt-15 lg:pb-35 flex'>
                     <div className='absolute left-0'>
                         <img src={SignupImg} alt="#" className='h-100 lg:h-175 opacity-15 lg:opacity-100 lg:flex' />

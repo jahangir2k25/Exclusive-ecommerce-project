@@ -1,4 +1,3 @@
-import React from 'react';
 import Container from './Container';
 import Flex from './Flex';
 import { VscSend } from "react-icons/vsc";
@@ -10,6 +9,7 @@ import { CiTwitter } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa6";
+import SocialIcon from './SocialIcon';
 
 
 
@@ -43,7 +43,7 @@ const Footer = () => {
 
 
                         <ListUl className="lg:mx-0 mx-auto lg:text-start text-center">
-                            <ListLi className='text-xl font-medium font-poppins'>Account</ListLi>
+                            <h2 className='text-xl font-medium font-poppins'>Account</h2>
                             <ListLi className='lg:pt-6 lg:pb-4 pt-3 pb-1'>My Account</ListLi>
                             <ListLi>Login / Register</ListLi>
                             <ListLi className='lg:pt-6 lg:pb-4 pt-3 pb-1'>Cart</ListLi>
@@ -52,7 +52,7 @@ const Footer = () => {
                         </ListUl>
 
                         <ListUl className="lg:mx-0 mx-auto lg:text-start text-center">
-                            <ListLi className='text-xl font-medium font-poppins'>Quick Link</ListLi>
+                            <h2 className='text-xl font-medium font-poppins'>Quick Link</h2>
                             <ListLi className='lg:pt-6 lg:pb-4 pt-3 pb-1'>Privacy Policy</ListLi>
                             <ListLi>Terms Of Use</ListLi>
                             <ListLi className='plg:pt-6 lg:pb-4 pt-3 pb-1'>FAQ</ListLi>
@@ -64,15 +64,15 @@ const Footer = () => {
                             <p className='text-xs font-poppins font-medium lg:pt-6 lg:pb-4 pt-3 pb-1'>Save $3 with App New User Only</p>
                             <img src={CodeImg} alt="" />
                             <div className='flex justify-around gap-2 pt-6 text-2xl'>
-                                <FaFacebookF />
-                                <CiTwitter />
-                                <FaInstagram />
-                                <FaLinkedinIn />
+                                <SocialIcon icon={<FaFacebookF />} />
+                                <SocialIcon icon={<CiTwitter />} />
+                                <SocialIcon icon={<FaInstagram />} />
+                                <SocialIcon icon={<FaLinkedinIn />} />
                             </div>
                         </div>
                     </Flex>
                 </Container>
-                    <div className='border-[#353434b3] border-b-2 w-full pb-4'></div>
+                <div className='border-[#353434b3] border-b-2 w-full pb-4'></div>
                 <div className='flex justify-center items-center text-[#353434b3] gap-1'>
                     <FaRegCopyright />
                     <h2 className='text-[#353434b3] text-center py-4'> Copyright Rimel 2022. All right reserved</h2>

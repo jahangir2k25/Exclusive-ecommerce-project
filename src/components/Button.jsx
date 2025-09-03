@@ -1,9 +1,9 @@
 
-const Button = ({ children, className }) => {
+const Button = ({ children, className, onClick }) => {
     return (
         <>
             <div className="text-center">
-                <button className={`${className} text-white text-center font-medium bg-black cursor-pointer`}>
+                <button onClick={onClick} className={`${className} text-white text-center font-medium bg-black cursor-pointer`}>
                     {children}
                 </button>
             </div>

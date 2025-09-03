@@ -1,12 +1,10 @@
 import Container from '../components/Container';
 import BreadCrumb from '../components/BreadCrumb';
 import Button from '../components/Button';
-import Monitor from '../assets/monitor.png';
-import Game from '../assets/gamepad.png';
 import { useSelector } from 'react-redux';
-import QuantityInput from '../components/Quantity';
+import CartItem from '../components/CartItem';
 
-const AtToCart = () => {
+const AtToCart = ({ number }) => {
 
   const productCart = useSelector((state) => state.allProduct.cart)
 
@@ -23,18 +21,21 @@ const AtToCart = () => {
             <h2>Quantity</h2>
             <h2>Subtotal</h2>
           </div>
-          <div className='flex justify-between py-6 px-10 shadow rounded-sm my-10'>
-            <div className='flex justify-center items-center gap-5'>
-              <img className='w-12.5 h-9.5' src={Monitor} alt="" />
-              <h2>LCD Monitor</h2>
-            </div>
-            <h2>$650</h2>
-            <div>
-              <QuantityInput />
-            </div>
-            <h2>$650</h2>
+          <div>
+            {
+              productCart.map((item, idx) => (
+                <CartItem
+                  key={idx}
+                  img={item.thumbnail}
+                  title={item.title}
+                  price={item.price}
+                  // total={item.price * ('number' in item ? item.number : 3)}
+                  total={item.price * 2}
+                />
+              ))
+            }
           </div>
-          <div className='flex justify-between py-7.25 px-10 shadow rounded-sm'>
+          {/* <div className='flex justify-between py-7.25 px-10 shadow rounded-sm'>
             <div className='flex justify-center items-center gap-5'>
               <img className='w-12.5 h-9.5' src={Game} alt="" />
               <h2>H1 Gamepad</h2>
@@ -44,7 +45,7 @@ const AtToCart = () => {
               <QuantityInput />
             </div>
             <h2>$1100</h2>
-          </div>
+          </div> */}
         </div>
 
         <div className='flex font-poppins font-medium justify-between pt-6'>

@@ -8,7 +8,7 @@ const SignUp = () => {
   return (
     <>
       <Container>
-        <div className='mt-20'>
+        <div className='mt-5 lg:mt-20'>
           <BreadCrumb />
         </div>
         <div className='mt-5 lg:mt-15 flex'>

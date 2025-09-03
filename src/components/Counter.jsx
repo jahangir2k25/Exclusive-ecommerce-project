@@ -6,7 +6,7 @@ import Semiclone from '../assets/Semiclone.png'
 
 
 const Counter = ({ className }) => {
-    const conduct_date = '2025-08-31 16:54:00';
+    const conduct_date = '2025-09-30 23:54:00';
     const [count, setCount] = useState({});
 
     useEffect(() => {
