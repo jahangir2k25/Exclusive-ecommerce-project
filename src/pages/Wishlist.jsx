@@ -1,17 +1,14 @@
 import Container from '../components/Container';
 import BreadCrumb from '../components/BreadCrumb';
 import Card from '../components/Card';
-import { RiDeleteBinLine } from "react-icons/ri";
 import bag from '../assets/whishlist/bag.png';
 import box from '../assets/whishlist/box.png';
 import remote from '../assets/whishlist/remote.png';
 import jecket from '../assets/whishlist/jecket.png';
-import star from '../assets/whishlist/star.png';
 import laptop from '../assets/whishlist/laptop.png';
 import desktop from '../assets/whishlist/desktop.png';
 import game from '../assets/whishlist/game.png';
 import keyboat from '../assets/whishlist/keyboat.png';
-import { MdOutlineRemoveRedEye } from "react-icons/md";
 import SecHead from '../components/SecHead';
 
 
