@@ -74,6 +74,7 @@ const Navbar = () => {
                     <CiHeart />
                     <h2 className="absolute w-5 h-5 -top-3 left-3 rounded-full bg-primary text-white flex justify-center items-center text-xs">{CartIcon.weight}2</h2>
                   </div>
+                  
                   <NavLink to='/attocart'>
                     <div className="relative ">
                       <IoCartOutline />

@@ -20,6 +20,7 @@ import AtToCart from "./pages/AtToCart";
 import Account from "./pages/Account";
 import CheckOut from "./pages/CheckOut";
 import Error from "./pages/Error";
+import Wishlist from "./pages/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: "account", Component: Account },
       { path: "checkout", Component: CheckOut },
       { path: "error", Component: Error },
+      { path: "wishlist", Component: Wishlist },
     ],
   },
 ]);
