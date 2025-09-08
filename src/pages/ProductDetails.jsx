@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
 import Container from '../components/Container';
-// import Game1 from '../assets/Cgame1.png';
-// import Game2 from '../assets/Cgame2.png';
-import { IoStar } from "react-icons/io5";
 import { FiHeart } from "react-icons/fi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { HiOutlineArrowPathRoundedSquare } from "react-icons/hi2";

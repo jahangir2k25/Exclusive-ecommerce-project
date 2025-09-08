@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import { useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
 
-const AtToCart = ({ number }) => {
+const AtToCart = () => {
 
   const productCart = useSelector((state) => state.allProduct.cart)
 
@@ -21,31 +21,21 @@ const AtToCart = ({ number }) => {
             <h2>Quantity</h2>
             <h2>Subtotal</h2>
           </div>
-          <div>
+          <div className='select-none'>
             {
               productCart.map((item, idx) => (
                 <CartItem
                   key={idx}
+                  id={item.id}
                   img={item.thumbnail}
                   title={item.title}
                   price={item.price}
-                  // total={item.price * ('number' in item ? item.number : 3)}
-                  total={item.price * 2}
+                  total={item.price}
+                  quantity={item.quantity}
                 />
               ))
             }
           </div>
-          {/* <div className='flex justify-between py-7.25 px-10 shadow rounded-sm'>
-            <div className='flex justify-center items-center gap-5'>
-              <img className='w-12.5 h-9.5' src={Game} alt="" />
-              <h2>H1 Gamepad</h2>
-            </div>
-            <h2>$550</h2>
-            <div>
-              <QuantityInput />
-            </div>
-            <h2>$1100</h2>
-          </div> */}
         </div>
 
         <div className='flex font-poppins font-medium justify-between pt-6'>

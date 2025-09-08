@@ -10,9 +10,15 @@ import desktop from '../assets/whishlist/desktop.png';
 import game from '../assets/whishlist/game.png';
 import keyboat from '../assets/whishlist/keyboat.png';
 import SecHead from '../components/SecHead';
+import { useSelector } from 'react-redux';
 
 
 const Wishlist = () => {
+
+    const Wishlist = useSelector((state) => state.allProduct.heart)
+
+    // console.log(Wishlist);
+
     return (
         <>
             <Container>
@@ -22,7 +28,7 @@ const Wishlist = () => {
 
                 <div className=''>
                     <div className='flex justify-end mt-10'>
-                        <button className='px-4 py-2 border-1  hover:text-white hover:border-primary hover:bg-primary duration-300'>Move All To Bag</button>
+                        <button className='px-4 py-2 border-1  hover:text-white hover:border-primary hover:bg-primary rounded-sm duration-300'>Move All To Bag</button>
                     </div>
 
                     <div className='mt-[60px] flex gap-6'>
@@ -64,7 +70,7 @@ const Wishlist = () => {
                         <SecHead
                             title="Just For You"
                         />
-                        <button className='px-4 py-2 border-1 hover:text-white hover:border-primary hover:bg-primary duration-300'>See All</button>
+                        <button className='px-4 py-2 border-1 hover:text-white hover:border-primary hover:bg-primary rounded-sm duration-300'>See All</button>
                     </div>
 
                     <div className='flex gap-6 mt-[80px]'>

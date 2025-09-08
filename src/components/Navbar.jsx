@@ -70,11 +70,13 @@ const Navbar = () => {
                   <CiSearch className="absolute lg:top-1.5 lg:right-2.5 top-5 right-36 text-black text-2xl cursor-pointer" />
                 </div>
                 <div className="flex lg:static lg:top-0 absolute top-39 right-2.5 items-center text-2xl lg:gap-4 gap-1.5 cursor-pointer">
-                  <div className="relative ">
-                    <CiHeart />
-                    <h2 className="absolute w-5 h-5 -top-3 left-3 rounded-full bg-primary text-white flex justify-center items-center text-xs">{CartIcon.weight}2</h2>
-                  </div>
-                  
+                  <NavLink to="/wishlist">
+                    <div className="relative ">
+                      <CiHeart />
+                      <h2 className="absolute w-5 h-5 -top-3 left-3 rounded-full bg-primary text-white flex justify-center items-center text-xs">{CartIcon.weight}2</h2>
+                    </div>
+                  </NavLink>
+
                   <NavLink to='/attocart'>
                     <div className="relative ">
                       <IoCartOutline />
