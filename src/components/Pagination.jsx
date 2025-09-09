@@ -16,7 +16,7 @@ const Pagination = ({ itemsPerPage }) => {
                     {currentItems &&
                         currentItems.map((items, id) => (
                             <Card
-                                productDetails={ items }
+                                productDetails={items}
                                 id={items.id}
                                 key={id}
                                 img={items.thumbnail}
@@ -27,7 +27,6 @@ const Pagination = ({ itemsPerPage }) => {
                                 discount={items.discountPercentage}
                                 review={items.reviews[0].rating}
                             />
-
                         ))}
                 </div>
             </>

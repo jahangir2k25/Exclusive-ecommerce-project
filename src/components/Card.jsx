@@ -1,19 +1,18 @@
+import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
-import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa6";
 import Button from './Button';
 import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { cartReducer } from "../Slices/ProductSlices";
-import { ToastContainer, toast, Bounce } from 'react-toastify';
-import { heartReducer } from "../Slices/ProductSlices";
+import { cartReducer, wishlistReducer } from "../Slices/ProductSlices";
+import { toast, Bounce } from 'react-toastify';
+
 
 const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, productDetails }) => {
 
     const data = useSelector((state) => state.allProduct.cart)
     // console.log(data);
-
-
     const notify = (param) =>
         param == undefined ?
             toast.success('Successfully added to Cart', {
@@ -26,8 +25,7 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
                 progress: undefined,
                 theme: "light",
                 transition: Bounce,
-            })
-            : toast.warn('Already added to Cart!', {
+            }) : toast.warn('Already added to Cart!', {
                 position: "top-right",
                 autoClose: 1000,
                 hideProgressBar: false,
@@ -39,7 +37,6 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
                 transition: Bounce,
             });
 
-    const notifyData = data.find((item) => item.id == id)
 
     const dispatch = useDispatch()
 
@@ -50,11 +47,12 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
 
     function handleAddToCart() {
         dispatch(cartReducer({ ...productDetails, quantity: 1 }));
+        const notifyData = data.find((item) => item.id == id)
         notify(notifyData);
     }
 
-    function handleHeart() {
-        dispatch(heartReducer({ ...productDetails, heart: 1 }));
+    function handleWishlist() {
+        dispatch(wishlistReducer({ ...productDetails }));
 
         toast.success('Successfully added to Wishlist', {
             position: "top-right",
@@ -69,11 +67,14 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
         });
     }
 
+    const [activeColor, setActiveColor] = useState(false);
+    const handleChange = () => {
+        setActiveColor(!activeColor);
+    };
 
     return (
         <>
             <div className="lg:w-67.5 w-45 group mx-auto">
-                <ToastContainer />
                 <div className='bg-[#F5F5F5] flex justify-center items-center rounded-sm overflow-hidden relative'>
                     <div onClick={handleClick} className='flex justify-center items-center lg:h-62.5 h-45'>
                         <img src={img} alt="#" />
@@ -81,7 +82,13 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
                     <h2 className='bg-primary text-center text-xs text-white absolute lg:left-3 lg:top-3 left-1.5 top-1 lg:px-3 lg:py-1 px-1 rounded-sm'>{discount}</h2>
                     <div className='absolute text-2xl right-3 top-3'>
                         <div className='bg-white h-8.5 w-8.5 rounded-full flex justify-center items-center cursor-pointer'>
-                            <CiHeart onClick={handleHeart} />
+                            <div onClick={handleWishlist}>
+                                <FaHeart
+                                    onClick={handleChange}
+                                    className={`cursor-pointer transition duration-300 ${activeColor ? "text-red-500" : "text-black"}`}
+                                />
+                            </div>
+
                         </div>
                         <div className='bg-white h-8.5 w-8.5 rounded-full mt-2 flex justify-center items-center'>
                             <IoMdEye />

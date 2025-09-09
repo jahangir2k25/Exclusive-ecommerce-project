@@ -27,6 +27,7 @@ const AtToCart = () => {
                 <CartItem
                   key={idx}
                   id={item.id}
+                  index={idx}
                   img={item.thumbnail}
                   title={item.title}
                   price={item.price}

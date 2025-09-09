@@ -21,6 +21,7 @@ import Account from "./pages/Account";
 import CheckOut from "./pages/CheckOut";
 import Error from "./pages/Error";
 import Wishlist from "./pages/Wishlist";
+import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <ToastContainer/>
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>

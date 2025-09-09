@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { TiDelete } from "react-icons/ti";
-import { deleteReducer, quantityReducer } from '../Slices/ProductSlices';
+import { deleteReducer, quantityReducer, subTotalReducer } from '../Slices/ProductSlices';
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 
 
-const CartItem = ({ img, title, price, total, id, quantity }) => {
+const CartItem = ({ img, title, price, total, id, quantity, index }) => {
 
     const dispatch = useDispatch()
 
@@ -14,14 +14,15 @@ const CartItem = ({ img, title, price, total, id, quantity }) => {
     }
 
     const handleIncrement = () => {
-        dispatch(quantityReducer([id, quantity + 1, price]))
+        dispatch(quantityReducer({id:index, quantity, actionname: 'Increment'}))
+        dispatch(subTotalReducer())
     }
     const handleDecrement = () => {
-        if (quantity > 0) {
-            dispatch(quantityReducer([id, quantity - 1, price]))
+        if (quantity > 1) {
+            dispatch(quantityReducer({id:index, quantity, actionname: 'Decrement'}))
+            dispatch(subTotalReducer())
         }
     }
-
 
     return (
         <div className='flex justify-between py-6 px-10 shadow rounded-sm my-10'>
@@ -40,7 +41,7 @@ const CartItem = ({ img, title, price, total, id, quantity }) => {
                     <IoIosArrowDown onClick={handleDecrement} className='cursor-pointer' />
                 </div>
             </div>
-            <h2>{total}</h2>
+            <h2>{Number(quantity*price).toFixed(2)}</h2>
         </div>
     )
 }

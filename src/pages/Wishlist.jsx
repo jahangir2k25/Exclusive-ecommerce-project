@@ -1,10 +1,6 @@
 import Container from '../components/Container';
 import BreadCrumb from '../components/BreadCrumb';
 import Card from '../components/Card';
-import bag from '../assets/whishlist/bag.png';
-import box from '../assets/whishlist/box.png';
-import remote from '../assets/whishlist/remote.png';
-import jecket from '../assets/whishlist/jecket.png';
 import laptop from '../assets/whishlist/laptop.png';
 import desktop from '../assets/whishlist/desktop.png';
 import game from '../assets/whishlist/game.png';
@@ -15,7 +11,7 @@ import { useSelector } from 'react-redux';
 
 const Wishlist = () => {
 
-    const Wishlist = useSelector((state) => state.allProduct.heart)
+    const WishlistItem = useSelector((state) => state.allProduct.wishlist)
 
     // console.log(Wishlist);
 
@@ -31,39 +27,26 @@ const Wishlist = () => {
                         <button className='px-4 py-2 border-1  hover:text-white hover:border-primary hover:bg-primary rounded-sm duration-300'>Move All To Bag</button>
                     </div>
 
-                    <div className='mt-[60px] flex gap-6'>
-                        <Card
-                            discount="-35%"
-                            img={bag}
-                            heading="Gucci duffle bag"
-                            price="$960"
-                            pastprice='$1160'
-                            rating='(88)'
-                        />
+                    <div className='mt-[60px] flex flex-wrap gap-6'>
 
-                        <Card
-                            img={box}
-                            heading="RGB liquid CPU Cooler"
-                            pice="$960"
-                            pastprice='$1160'
-                            rating='(88)'
-                        />
+                        {
+                            WishlistItem.map((items, id) => {
+                                return (
+                                    <Card
+                                        id={items.id}
+                                        key={id}
+                                        img={items.thumbnail}
+                                        heading={items.title}
+                                        price={items.price}
+                                        pastprice={Math.floor(items.price / (1 - items.discountPercentage / 100))}
+                                        rating={items.rating}
+                                        discount={items.discountPercentage}
+                                        // review={items.reviews[0].rating}
+                                    />
+                                )
+                            })
+                        }
 
-                        <Card
-                            img={remote}
-                            heading="GP11 Shooter USB Gamepad"
-                            price="$560"
-                            pastprice='$1160'
-                            rating='(88)'
-                        />
-
-                        <Card
-                            img={jecket}
-                            heading="Quilted Satin Jacket"
-                            price="$200"
-                            pastprice='$1160'
-                            rating='(88)'
-                        />
                     </div>
 
                     <div className='flex justify-between mt-42.5'>

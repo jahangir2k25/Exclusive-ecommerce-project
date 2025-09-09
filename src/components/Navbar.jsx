@@ -19,9 +19,9 @@ const Navbar = () => {
   }
 
   const CartIcon = useSelector((state) => state.allProduct.cart)
-  console.log(CartIcon);
-
-
+  // console.log(CartIcon);
+  const wishlistIcon = useSelector((state) => state.allProduct.wishlist)
+  // console.log(wishlistIcon);
 
   const navActive = ({ isActive }) =>
     isActive
@@ -73,7 +73,7 @@ const Navbar = () => {
                   <NavLink to="/wishlist">
                     <div className="relative ">
                       <CiHeart />
-                      <h2 className="absolute w-5 h-5 -top-3 left-3 rounded-full bg-primary text-white flex justify-center items-center text-xs">{CartIcon.weight}2</h2>
+                      <h2 className="absolute w-5 h-5 -top-3 left-3 rounded-full bg-primary text-white flex justify-center items-center text-xs">{wishlistIcon.length}</h2>
                     </div>
                   </NavLink>
 
