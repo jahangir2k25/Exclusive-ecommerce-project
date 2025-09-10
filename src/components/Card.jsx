@@ -5,7 +5,7 @@ import Button from './Button';
 import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { cartReducer, wishlistReducer } from "../Slices/ProductSlices";
+import { cartReducer, subTotalReducer, wishlistReducer } from "../Slices/ProductSlices";
 import { toast, Bounce } from 'react-toastify';
 
 
@@ -49,6 +49,7 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
         dispatch(cartReducer({ ...productDetails, quantity: 1 }));
         const notifyData = data.find((item) => item.id == id)
         notify(notifyData);
+        dispatch(subTotalReducer());
     }
 
     function handleWishlist() {

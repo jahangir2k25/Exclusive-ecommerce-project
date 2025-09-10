@@ -7,6 +7,8 @@ import CartItem from '../components/CartItem';
 const AtToCart = () => {
 
   const productCart = useSelector((state) => state.allProduct.cart)
+  const subTotal = useSelector((state) => state.allProduct.subTotal)
+  // console.log(subTotal);
 
   return (
     <>
@@ -58,7 +60,7 @@ const AtToCart = () => {
             <h2 className='text-xl font-medium pt-8 pb-6'>Cart Total</h2>
             <div className='flex justify-between border-b-2 border-secondary pb-4'>
               <h2>Subtotal:</h2>
-              <h2>$1750</h2>
+              <h2>${(subTotal).toFixed(2)}</h2>
             </div>
             <div className='flex justify-between border-b-2 border-secondary py-4'>
               <h2>Shipping:</h2>
@@ -66,7 +68,7 @@ const AtToCart = () => {
             </div>
             <div className='flex justify-between border-b-2 border-secondary py-4'>
               <h2>Total:</h2>
-              <h2>$1750</h2>
+              <h2>${(subTotal).toFixed(2)}</h2>
             </div>
             <div className='mt-4 mb-8'>
               <Button className='bg-primary hover:bg-[#9a0606] px-12 py-4 rounded-sm'>Procees to checkout</Button>

@@ -41,7 +41,7 @@ const CartItem = ({ img, title, price, total, id, quantity, index }) => {
                     <IoIosArrowDown onClick={handleDecrement} className='cursor-pointer' />
                 </div>
             </div>
-            <h2>{Number(quantity*price).toFixed(2)}</h2>
+            <h2>${Number(quantity*price).toFixed(2)}</h2>
         </div>
     )
 }

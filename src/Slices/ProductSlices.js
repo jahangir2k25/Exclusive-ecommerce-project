@@ -51,7 +51,7 @@ export const ProductSlices = createSlice({
       localStorage.setItem('cart', JSON.stringify([...state.cart]))
     },
     subTotalReducer: (state, action) => {
-      state.subTotal = action.payload((acc, curr) => acc + (curr.price * curr.quantity), 0)
+      state.subTotal = state.cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
     }
 
   },
