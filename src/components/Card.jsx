@@ -82,7 +82,7 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
                     </div>
                     <h2 className='bg-primary text-center text-xs text-white absolute lg:left-3 lg:top-3 left-1.5 top-1 lg:px-3 lg:py-1 px-1 rounded-sm'>{discount}</h2>
                     <div className='absolute text-2xl right-3 top-3'>
-                        <div className='bg-white h-8.5 w-8.5 rounded-full flex justify-center items-center cursor-pointer'>
+                        <div className='bg-white  h-6 w-6 lg:h-8.5 lg:w-8.5 rounded-full flex justify-center items-center cursor-pointer'>
                             <div onClick={handleWishlist}>
                                 <FaHeart
                                     onClick={handleChange}
@@ -91,7 +91,7 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
                             </div>
 
                         </div>
-                        <div className='bg-white h-8.5 w-8.5 rounded-full mt-2 flex justify-center items-center'>
+                        <div className='bg-white h-6 w-6 lg:h-8.5 lg:w-8.5 rounded-full mt-2 flex justify-center items-center'>
                             <IoMdEye />
                         </div>
                     </div>

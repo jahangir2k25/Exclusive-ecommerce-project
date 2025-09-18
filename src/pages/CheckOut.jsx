@@ -12,12 +12,12 @@ const CheckOut = () => {
   return (
     <>
       <Container>
-        <div className="my-20">
+        <div className="lg:my-20 my-6">
           <BreadCrumb />
         </div>
-        <h2 className="text-4xl font-inter font-medium mt-20 mb-12">Billing Details</h2>
+        <h2 className="text-4xl font-inter font-medium lg:mt-20 mt-6 lg:mb-12 mb-3 px-2 lg:px-0">Billing Details</h2>
         {/* Billing Details */}
-        <div className="flex font-poppins gap-43.25">
+        <div className="lg:flex font-poppins lg:gap-43.25 px-2 lg:px-0">
           <div className="space-y-4 text-secondary ">
             <div>
               <label className="mb-1 font-medium">First Name*</label>
@@ -77,7 +77,7 @@ const CheckOut = () => {
 
 
           {/* Order Summary */}
-          <div className="flex-1">
+          <div className="lg:flex-1 mt-6">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <div className="flex justify-center items-center gap-3">
@@ -142,15 +142,15 @@ const CheckOut = () => {
               <input
                 type="text"
                 placeholder="Coupon Code"
-                className="flex-1 border px-4 rounded-sm focus:outline-none"
+                className="border px-4 rounded-sm focus:outline-none"
               />
-              <button className="bg-red-500 hover:bg-[#9a0606] text-white px-12 py-4 rounded-sm cursor-pointer">
+              <button className="bg-red-500 hover:bg-[#9a0606] text-white lg:px-12 lg:py-4 px-8 py-3 rounded-sm cursor-pointer">
                 Apply Coupon
               </button>
             </div>
 
             {/* Place Order */}
-            <button className="bg-red-500 hover:bg-[#9a0606] text-white px-12 py-4 rounded-sm cursor-pointer">
+            <button className="bg-red-500 hover:bg-[#9a0606] text-white lg:px-12 lg:py-4 px-8 py-3 rounded-sm cursor-pointer">
               Place Order
             </button>
           </div>

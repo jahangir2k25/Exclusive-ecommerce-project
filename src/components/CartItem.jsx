@@ -14,12 +14,12 @@ const CartItem = ({ img, title, price, total, id, quantity, index }) => {
     }
 
     const handleIncrement = () => {
-        dispatch(quantityReducer({id:index, quantity, actionname: 'Increment'}))
+        dispatch(quantityReducer({ id: index, quantity, actionname: 'Increment' }))
         dispatch(subTotalReducer())
     }
     const handleDecrement = () => {
         if (quantity > 1) {
-            dispatch(quantityReducer({id:index, quantity, actionname: 'Decrement'}))
+            dispatch(quantityReducer({ id: index, quantity, actionname: 'Decrement' }))
             dispatch(subTotalReducer())
         }
     }
@@ -31,7 +31,9 @@ const CartItem = ({ img, title, price, total, id, quantity, index }) => {
                     <img className='w-12.5 h-10.5' src={img} alt="" />
                     <TiDelete onClick={handleDelete} className='absolute -top-1 left-2 text-2xl text-primary rounded-full cursor-pointer' />
                 </div>
-                <h2>{`${title.slice(0, 15)} ....`}</h2>
+                <div className='#'>
+                    <h2>{`${title.slice(0, 15)} ....`}</h2>
+                </div>
             </div>
             <h2>{price}</h2>
             <div className='flex justify-center items-center gap-3 border-1 py-1.5 px-3 rounded-sm'>
@@ -41,7 +43,7 @@ const CartItem = ({ img, title, price, total, id, quantity, index }) => {
                     <IoIosArrowDown onClick={handleDecrement} className='cursor-pointer' />
                 </div>
             </div>
-            <h2>${Number(quantity*price).toFixed(2)}</h2>
+            <h2>${Number(quantity * price).toFixed(2)}</h2>
         </div>
     )
 }

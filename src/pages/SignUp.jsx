@@ -42,7 +42,7 @@ const SignUp = () => {
             </div>
 
             <div>
-              <NavLink className='text-white px-33 bg-primary hover:bg-[#d60303] py-4 rounded-sm'>
+              <NavLink className='text-white px-33 py-4 bg-primary hover:bg-[#d60303] duration-300 rounded-sm'>
                 Create Account
               </NavLink>
             </div>

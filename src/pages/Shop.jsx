@@ -90,27 +90,12 @@ const Shop = () => {
               </select>
             </div>
 
-            <div className="lg:flex flex-wrap justify-between grid grid-cols-2 gap-5 pt-8 lg:pt-0">
+            <div className="flex flex-wrap justify-between flex-col gap-5 pt-8 lg:pt-0">
               {
                 loading ?
                   Array.from({ length: 6 }).map((_, index) => <Skeleton key={index} />)
                   :
                   (<Pagination itemsPerPage={optionShow} />)}
-
-              {/* /* // products.map((products) => {
-                //   return (
-                //     <Card
-                //       img={products.thumbnail}
-                //       heading={products.title}
-                //       price={products.price}
-                //       pastprice={Math.floor(products.price / (1 - products.discountPercentage / 100))}
-                //       rating={products.rating}
-                //       discount={products.discountPercentage}
-                //       review={products.reviews[0].rating}
-                //     />
-                //   )
-                // }) */
-              }
 
             </div>
           </div>
