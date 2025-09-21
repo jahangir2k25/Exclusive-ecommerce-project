@@ -3,12 +3,19 @@ import BreadCrumb from '../components/BreadCrumb';
 import Button from '../components/Button';
 import { useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
+import { NavLink } from 'react-router';
+
 
 const AtToCart = () => {
 
   const productCart = useSelector((state) => state.allProduct.cart)
   const subTotal = useSelector((state) => state.allProduct.subTotal)
   // console.log(subTotal);
+
+  const navActive = ({ isActive }) =>
+    isActive
+      ? "lg:text-[#DB4444] font-semibold"
+      : "lg:text-[#000000] hover:text-[#DB4444]";
 
   return (
     <>
@@ -42,7 +49,9 @@ const AtToCart = () => {
         </div>
 
         <div className='flex font-poppins font-medium justify-between px-2 lg:px-0 pt-6'>
-          <button className='bg-transparent hover:bg-black text-black hover:text-white duration-300 lg:px-12 lg:py-4 px-6 py-2 border-1 cursor-pointer rounded-sm'>Return To Shop</button>
+          <NavLink to='/shop' className={navActive}>
+            <button className='bg-transparent hover:bg-black text-black hover:text-white duration-300 lg:px-12 lg:py-4 px-6 py-2 border-1 cursor-pointer rounded-sm'>Return To Shop</button>
+          </NavLink>
           <button className='bg-transparent hover:bg-black text-black hover:text-white duration-300 lg:px-12 lg:py-4 px-6 py-2 border-1 cursor-pointer rounded-sm'>Update Cart</button>
         </div>
 

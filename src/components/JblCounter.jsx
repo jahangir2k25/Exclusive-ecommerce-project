@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { countDownDateAndTime } from 'countdown-date-time';
 import Flex from './Flex';
-import Image from './Image';
-import Semiclone from '../assets/Semiclone.png'
 
 
 const JblCounter = ({ className }) => {
