@@ -12,7 +12,6 @@ const CartItem = ({ img, title, price, total, id, quantity, index }) => {
     const handleDelete = () => {
         dispatch(deleteReducer(id))
     }
-
     const handleIncrement = () => {
         dispatch(quantityReducer({ id: index, quantity, actionname: 'Increment' }))
         dispatch(subTotalReducer())

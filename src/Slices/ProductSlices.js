@@ -29,8 +29,8 @@ export const ProductSlices = createSlice({
         // console.log('item already added');
       }
     },
+
     deleteReducer: (state, action) => {
-      // state.cart.splice(action.payload.id, 1)
       // state.cart.splice((item) => item.id !== action.payload, 1)
       state.cart = state.cart.filter((item) => item.id !== action.payload)
       localStorage.setItem("cart", JSON.stringify([...state.cart]));

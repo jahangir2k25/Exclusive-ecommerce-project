@@ -95,8 +95,8 @@ const Shop = () => {
                 loading ?
                   Array.from({ length: 6 }).map((_, index) => <Skeleton key={index} />)
                   :
-                  (<Pagination itemsPerPage={optionShow} />)}
-
+                  (<Pagination itemsPerPage={optionShow} />)
+              }
             </div>
           </div>
 
