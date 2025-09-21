@@ -31,17 +31,34 @@ export const ProductSlices = createSlice({
     },
     deleteReducer: (state, action) => {
       // state.cart.splice(action.payload.id, 1)
-      state.cart.splice((item) => item.id !== action.payload, 1)
-      localStorage.setItem('cart', JSON.stringify([...state.cart]))
+      // state.cart.splice((item) => item.id !== action.payload, 1)
+      state.cart = state.cart.filter((item) => item.id !== action.payload)
+      localStorage.setItem("cart", JSON.stringify([...state.cart]));
     },
 
+    // wishlistReducer: (state, action) => {
+    //   const findIndex = state.cart.findIndex((item) => item.id === action.payload.id)
+    //   if (findIndex == -1) {
+    //     state.wishlist = [...state.wishlist, action.payload]
+    //     localStorage.setItem('wishlist', JSON.stringify([...state.wishlist]))
+    //   } else { }
+    // },
+
     wishlistReducer: (state, action) => {
-      const findIndex = state.cart.findIndex((item) => item.id === action.payload.id)
-      if (findIndex == -1) {
-        state.wishlist = [...state.wishlist, action.payload]
-        localStorage.setItem('wishlist', JSON.stringify([...state.wishlist]))
-      } else { }
+      const product = action.payload;
+      const exists = state.wishlist.some(
+        (item) => item && item.id === product.id
+      );
+      if (exists) {
+        state.wishlist = state.wishlist.filter(
+          (item) => item && item.id !== product.id
+        );
+      } else {
+        state.wishlist = [...state.wishlist, product];
+      }
+      localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
     },
+
 
     quantityReducer: (state, action) => {
       // console.log(action.payload);

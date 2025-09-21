@@ -68,10 +68,15 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
         });
     }
 
-    const [activeColor, setActiveColor] = useState(false);
-    const handleChange = () => {
-        setActiveColor(!activeColor);
-    };
+    const wishlist = useSelector((state) => state.allProduct.wishlist) || [];
+    const isWishlisted = wishlist
+        .filter((item) => item && item.id !== undefined)
+        .some((item) => item.id === id);
+
+    // const [activeColor, setActiveColor] = useState(false);
+    // const handleChange = () => {
+    //     setActiveColor(!activeColor);
+    // };
 
     return (
         <>
@@ -85,8 +90,8 @@ const Card = ({ img, heading, price, pastprice, rating, reviews, discount, id, p
                         <div className='bg-white  h-6 w-6 lg:h-8.5 lg:w-8.5 rounded-full flex justify-center items-center cursor-pointer'>
                             <div onClick={handleWishlist}>
                                 <FaHeart
-                                    onClick={handleChange}
-                                    className={`cursor-pointer transition duration-300 ${activeColor ? "text-red-500" : "text-black"}`}
+                                    // onClick={handleChange}
+                                    className={`cursor-pointer transition duration-300 ${!isWishlisted ? "text-black" : "text-red-500"}`}
                                 />
                             </div>
 
