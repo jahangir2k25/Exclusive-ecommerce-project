@@ -11,7 +11,6 @@ import Banner from '../assets/Banner.jpg';
 import { BiCategory } from "react-icons/bi";
 
 
-
 const BannerImg = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => {

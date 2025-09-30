@@ -10,7 +10,6 @@ import { useParams } from "react-router";
 import { Rate } from 'antd';
 
 
-
 const ProductDetails = () => {
     const [products, setProducts] = useState({});
     const [productImages, setProductImages] = useState([]);
@@ -26,11 +25,10 @@ const ProductDetails = () => {
         // dispatch(productReducer(data.data.products))
         // setLoading(false);
     }
-
     useEffect(() => {
         getAllProducts();
 
-    }, []);
+    }, [id]);
 
     return (
         <>

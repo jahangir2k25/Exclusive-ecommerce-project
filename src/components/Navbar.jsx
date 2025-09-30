@@ -8,7 +8,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { AiOutlineBars } from "react-icons/ai";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { useSelector } from 'react-redux';
 
 
@@ -22,11 +22,32 @@ const Navbar = () => {
   // console.log(CartIcon);
   const wishlistIcon = useSelector((state) => state.allProduct.wishlist)
   // console.log(wishlistIcon);
+  const navigate = useNavigate();
+
 
   const navActive = ({ isActive }) =>
     isActive
       ? "lg:text-[#DB4444] font-semibold"
       : "lg:text-[#000000] hover:text-[#DB4444]";
+
+
+  const products = useSelector((state) => state.allProduct.value)
+  // console.log(products);
+  const [search, setSearch] = useState('');
+  const [filteredProduct, setFilteredProduct] = useState([]);
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+    if (value.trim() === '') { setFilteredProduct([]); }
+    else {
+      setFilteredProduct(
+        products ? products.filter((item) =>
+          item.title.toLowerCase().includes(value.toLowerCase())
+        ) : []
+      )
+    }
+  }
 
   return (
     <>
@@ -63,11 +84,31 @@ const Navbar = () => {
               <div className="flex-wrap lg:flex gap-6">
                 <div className="relative">
                   <input
-                    type='text'
-                    className="w-[243px] bg-[#F5F5F5] text-black mt-3.5 lg:mt-0 text-xs py-2.5 pl-5 pr-3 rounded-full lg:rounded-sm"
+                    onChange={handleSearchChange}
+                    type='search'
+                    value={search}
+                    className="w-[243px] bg-[#F5F5F5] text-black mt-3.5 lg:mt-0 text-xs py-2.5 pl-5 pr-10 rounded-full lg:rounded-sm"
                     placeholder="What are you looking for?"
                   />
                   <CiSearch className="absolute lg:top-1.5 lg:right-2.5 top-5 right-36 text-black text-2xl cursor-pointer" />
+
+                  <div className='absolute bg-white top-12 lg:w-[243px] w-[90%] max-h-60 overflow-y-auto'>
+                    {filteredProduct.map((item) => {
+                      <div className='flex gap-3 items-center border-b-2 border-gray-200'
+                        onClick={() => {
+                          navigate(`/productDetails/${item.id}`);
+                          setSearch('')
+                          setFilteredProduct([])
+                        }
+                        }
+                      >
+                        <img src={item.thumbnail} alt="" className="w-10 h-10" />
+                        {item.title}
+                      </div>
+                    }
+                    )}
+
+                  </div>
                 </div>
                 <div className="flex lg:static lg:top-0 absolute top-39 right-2.5 items-center text-2xl lg:gap-4 gap-1.5 cursor-pointer">
                   <NavLink to="/wishlist">
@@ -90,7 +131,7 @@ const Navbar = () => {
           </Flex>
           <AiOutlineBars onClick={handleClick} className="lg:hidden block text-3xl pl-2.5 text-center right-2.5 top-2.5 absolute cursor-pointer" />
         </Container>
-      </nav>
+      </nav >
     </>
   )
 }
