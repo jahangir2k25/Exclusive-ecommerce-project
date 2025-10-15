@@ -39,13 +39,10 @@ const Navbar = () => {
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearch(value);
-    if (value.trim() === '') { setFilteredProduct([]); }
-    else {
-      setFilteredProduct(
-        products ? products.filter((item) =>
-          item.title.toLowerCase().includes(value.toLowerCase())
-        ) : []
-      )
+    if (value.trim() === "") {
+      setFilteredProduct([]);
+    } else {
+      setFilteredProduct(products.filter((item) => item.title.toLowerCase().includes(value.toLowerCase())));
     }
   }
 
@@ -93,20 +90,18 @@ const Navbar = () => {
                   <CiSearch className="absolute lg:top-1.5 lg:right-2.5 top-5 right-36 text-black text-2xl cursor-pointer" />
 
                   <div className='absolute bg-white top-12 lg:w-[243px] w-[90%] max-h-60 overflow-y-auto'>
-                    {filteredProduct.map((item) => {
+                    {filteredProduct.map((item) => (
                       <div className='flex gap-3 items-center border-b-2 border-gray-200'
                         onClick={() => {
                           navigate(`/productDetails/${item.id}`);
                           setSearch('')
                           setFilteredProduct([])
-                        }
-                        }
+                        }}
                       >
                         <img src={item.thumbnail} alt="" className="w-10 h-10" />
                         {item.title}
                       </div>
-                    }
-                    )}
+                    ))}
 
                   </div>
                 </div>
