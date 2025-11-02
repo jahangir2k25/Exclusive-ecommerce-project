@@ -16,7 +16,7 @@ const Login = () => {
                     </div>
                     <div className='pl-5 lg:pl-187.25 lg:mt-31.25 z-1'>
 
-                        <h4 className='text-[36px] font-medium font-inter'>Create an account</h4>
+                        <h4 className='text-[36px] font-medium font-inter'>Log in into Exlusive</h4>
                         <p className='font-poppins mt-6'>Enter your details below</p>
 
                         <div className='mt-10  '>

@@ -15,6 +15,7 @@
     "antd": "^5.26.7",
     "axios": "^1.11.0",
     "countdown-date-time": "^1.0.4",
+    "firebase": "^12.5.0",
     "flowbite": "^3.1.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

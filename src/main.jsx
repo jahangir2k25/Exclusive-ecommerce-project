@@ -22,6 +22,8 @@ import CheckOut from "./pages/CheckOut";
 import Error from "./pages/Error";
 import Wishlist from "./pages/Wishlist";
 import { ToastContainer } from "react-toastify";
+import firebaseConfig from "../src/FirebaseConfig.js";
+
 
 const router = createBrowserRouter([
   {

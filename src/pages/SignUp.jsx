@@ -2,9 +2,59 @@ import BreadCrumb from '../components/BreadCrumb';
 import Container from '../components/Container';
 import SignupImg from '../assets/signupimg.png'
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router";
+import { Navigate, NavLink, useNavigate } from "react-router";
+import { useState } from 'react';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification
+} from "firebase/auth";
+
+
 
 const SignUp = () => {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  let Navigate = useNavigate();
+
+  const auth = getAuth();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    // console.log(handleClick);
+
+    if (name && email && password) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          sendEmailVerification(auth.currentUser)
+            .then(() => {
+              updateProfile(auth.currentUser, {
+                displayName: name,
+                // photoURL: "https://example.com/jane-q-user/profile.jpg"
+              })
+                .then(() => {
+                  const user = userCredential.user;
+                  console.log(user);
+                  Navigate('/Login');
+                })
+                .catch((error) => {
+                  // console.log(error);
+                });
+            });
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // console.log(errorCode, errorMessage);
+
+        });
+    }
+  }
+
   return (
     <>
       <Container>
@@ -24,34 +74,40 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder='Name'
-                className='border-b-2 border-secondary w-92.5 h-8 py-2 focus:outline-none' />
+                className='border-b-2 border-secondary w-92.5 h-8 py-2 focus:outline-none'
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
 
             <div className='mt-10  '>
               <input
                 type="email"
                 placeholder='Email or Phone Number'
-                className='border-b-2 border-secondary w-92.5 h-8 py-2 focus:outline-none' />
+                className='border-b-2 border-secondary w-92.5 h-8 py-2 focus:outline-none'
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
 
             <div className='mt-10 mb-10 '>
               <input
                 type="password"
                 placeholder='Password'
-                className='border-b-2 border-secondary w-92.5 h-8 py-2 focus:outline-none' />
+                className='border-b-2 border-secondary w-92.5 h-8 py-2 focus:outline-none'
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
 
             <div>
-              <NavLink className='text-white px-33 py-4 bg-primary hover:bg-[#d60303] duration-300 rounded-sm'>
+              <button onClick={handleClick} className='text-white px-33 py-4 bg-primary hover:bg-[#d60303] duration-300 rounded-sm cursor-pointer'>
                 Create Account
-              </NavLink>
+              </button>
             </div>
 
             <div className='mt-8'>
-              <NavLink className='text-black flex items-center gap-2 border-1 border-secondary hover:text-white hover:bg-black duration-300 px-22 py-4 rounded-sm'>
+              <button className='text-black flex items-center gap-2 border-1 border-secondary hover:text-white hover:bg-black duration-300 px-22 py-4 rounded-sm cursor-pointer'>
                 <span className='text-2xl'><FcGoogle /></span>
                 Sign up with Google
-              </NavLink>
+              </button>
             </div>
 
             <div className='flex gap-2 items-center mt-8 text-center justify-center'>

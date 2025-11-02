@@ -57,7 +57,7 @@ const Navbar = () => {
               </NavLink>
             </div>
 
-            <div className={`${show ? 'block' : 'hidden'} lg:flex absolute justify-between items-center lg:text-black top-15     lg:static lg:bg-transparent text-white bg-black lg:w-[75%] w-full pl-4 lg:pl-0 py-4 lg:py-0`}>
+            <div className={`${show ? 'block' : 'hidden'} lg:flex absolute justify-between items-center lg:text-black top-15 lg:static lg:bg-transparent text-white bg-black lg:w-[75%] w-full pl-4 lg:pl-0 py-4 lg:py-0`}>
               <div>
                 <ListUl className='flex-wrap lg:flex lg:gap-12 leading-6 lg:leading-0 hover:border-none cursor-pointer z-auto'>
                   <NavLink to='/' end className={navActive}>
@@ -102,9 +102,9 @@ const Navbar = () => {
                         {item.title}
                       </div>
                     ))}
-
                   </div>
                 </div>
+
                 <div className="flex lg:static lg:top-0 absolute top-39 right-2.5 items-center text-2xl lg:gap-4 gap-1.5 cursor-pointer">
                   <NavLink to="/wishlist">
                     <div className="relative ">
@@ -120,10 +120,12 @@ const Navbar = () => {
                     </div>
                   </NavLink>
                 </div>
+                
               </div>
             </div>
 
           </Flex>
+          
           <AiOutlineBars onClick={handleClick} className="lg:hidden block text-3xl pl-2.5 text-center right-2.5 top-2.5 absolute cursor-pointer" />
         </Container>
       </nav >

@@ -48,19 +48,6 @@ const ProductDetails = () => {
                                 );
                             })
                         }
-
-                        {/* <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
-                            <img className='px-6 py-3' src={Game2} alt="" />
-                        </div>
-                        <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
-                            <img className='px-6 py-3' src={Game2} alt="" />
-                        </div>
-                        <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
-                            <img className='px-6 py-3' src={Game2} alt="" />
-                        </div>
-                        <div className='bg-[#f5f5f5] rounded-sm flex justify-between items-center'>
-                            <img className='px-6 py-3' src={Game2} alt="" />
-                        </div> */}
                     </div>
 
                     <div className='bg-[#f5f5f5] flex justify-between items-center'>
